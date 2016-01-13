@@ -1,0 +1,18 @@
+# Write your MySQL query statement below
+select t1.Request_at as Day, round((select count(*) from Trips t2 
+join Users u2 on t2.Client_Id = u2.Users_Id
+where u2.Banned = 'No' and t2.Request_at = t1.Request_at and (t2.Status = 'cancelled_by_driver' or t2.Status = 'cancelled_by_client'))/count(t1.status),2) as Cancellation
+from Trips t1
+join Users u1 on t1.Client_Id = u1.Users_Id
+where u1.Banned ='No' and t1.Request_at between Date('2013-10-01') and Date('2013-10-3')
+group by t1.Request_at
+order by t1.Request_at;
+
+
+
+
+
+
+
+
+

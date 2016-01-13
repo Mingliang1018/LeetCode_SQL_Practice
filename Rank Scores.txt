@@ -1,0 +1,5 @@
+# Write your MySQL query statement below
+select s1.Score, count(distinct s2.Score) from Scores s1
+join Scores s2 on s1.Score<=s2.Score
+group by s1.Score, s1.Id
+order by s1.Score DESC;

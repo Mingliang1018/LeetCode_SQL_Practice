@@ -1,0 +1,4 @@
+# Write your MySQL query statement below
+select distinct lg1.Num from Logs lg1
+join Logs lg2 on lg1.Id = lg2.Id-1 and lg1.Num = lg2.Num
+join Logs lg3 on lg3.Id = lg2.Id+1 and lg3.Num = lg2.num;
